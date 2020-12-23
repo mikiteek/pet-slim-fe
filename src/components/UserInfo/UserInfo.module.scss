@@ -1,0 +1,29 @@
+@import "../../static/scss/mixins";
+
+.userInfoBlock {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    margin-right: 50px;
+  }
+}
+.userInfoBlock *:not(:last-child) {
+  margin-right: 14px;
+}
+.userName {
+  @include my-font-styles(#212121, 1.2, 14px, 700);
+}
+
+.separateLine {
+  height: 32px;
+  width: 2px;
+  background-color: #e0e0e0;
+}
+
+.btnLogout {
+  @include my-font-styles(#9b9faa, 1.2, 14px, 700);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

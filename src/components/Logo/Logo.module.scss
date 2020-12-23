@@ -1,0 +1,29 @@
+.logo {
+  background-image: url("../../static/images/logo/logo-mobile@1x.png");
+  width: 47px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @media (min-width: 768px) {
+    background-image: url("../../static/images/logo/logo-tablet@1x.png");
+    width: 163px;
+  }
+  @media (min-width: 2180px) {
+    background-image: url("../../static/images/logo/logo-desktop@1x.png");
+    width: 167px;
+    height: 66px;
+  }
+
+  @media (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-width: 320px) {
+      background-image: url("../../static/images/logo/logo-mobile@2x.png");
+    }
+    @media (min-width: 768px) {
+      background-image: url("../../static/images/logo/logo-tablet@2x.png");
+    }
+    @media (min-width: 1280px) {
+      background-image: url("../../static/images/logo/logo-desktop@2x.png");
+    }
+  }
+}
