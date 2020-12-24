@@ -1,0 +1,36 @@
+@import "../../static/scss/mixins";
+
+.navList {
+  @media (min-width: 1280px) {
+    display: flex;
+  }
+}
+
+.navListItem {
+  @media (max-width: 1279px) {
+    text-align: center;
+  }
+}
+
+.navListItem:not(:last-child) {
+  margin-bottom: 30px;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1280px) {
+    margin-right: 22px;
+    margin-bottom: 0;
+  }
+}
+
+.navListItemLink {
+  @include my-font-styles(#9b9faa, 1.2, 14px, 700);
+  text-transform: uppercase;
+}
+
+.navListItemLinkActive {
+  color: #fff;
+  @media (min-width: 1280px) {
+    color: #212121;
+  }
+}
