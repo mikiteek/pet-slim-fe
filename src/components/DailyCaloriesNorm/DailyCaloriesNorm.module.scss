@@ -1,0 +1,95 @@
+@import "../../static/scss/mixins";
+
+.titleForm {
+  @include my-font-styles(#212121, 26px, 18px, 700);
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formInput {
+  width: 240px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  @include my-font-styles(#212121, 1.2, 14px, 700);
+  letter-spacing: 0.04em;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  &::placeholder {
+    @include my-font-styles(#9b9faa, 100%, 14px, 700);
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+}
+
+.groupBloodTitle {
+  @include my-font-styles(#9b9faa, 100%, 14px, 700);
+  margin-bottom: 8px;
+}
+
+.radioBtnList {
+  display: flex;
+  position: relative;
+  margin-bottom: 40px;
+  & li:not(:last-child) {
+    margin-right: 28px;
+  }
+}
+.radioBtn::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-25%, -25%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+}
+
+.radioBtn {
+  position: relative;
+  cursor: pointer;
+  margin-right: 6px;
+  outline: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: none;
+  border-radius: 50%;
+  &:checked {
+    background: #fc842d;
+  }
+  &:checked + label {
+    color: #fc842d;
+  }
+}
+.radioBtnLabel {
+  @include my-font-styles(#9b9faa, 100%, 14px, 700);
+  letter-spacing: 0.04em;
+}
+
+.buttonSubmit {
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  width: 176px;
+  height: 44px;
+  background-color: #fc842d;
+  border-radius: 30px;
+  @include my-font-styles(#fff, 100%, 14px, 700);
+  letter-spacing: 0.04em;
+}

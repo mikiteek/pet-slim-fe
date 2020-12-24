@@ -49,3 +49,7 @@ input[type="radio"].visually-hidden {
     margin-left: 90px;
   }
 }
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
