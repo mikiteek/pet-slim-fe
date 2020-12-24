@@ -1,9 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import burgerMenuReducer from "./burgerMenu/burgerMenuReducer";
+import toggleComponentsReducer from "./toggleComponents/toggleComponentsReducer";
 
 const store = configureStore({
   reducer: {
-    burgerMenu: burgerMenuReducer,
+    toggleComponents: toggleComponentsReducer,
   },
 });
 

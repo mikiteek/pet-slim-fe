@@ -5,8 +5,8 @@ import {ReactComponent as OpenIcon} from "../../static/images/burger-menu/burger
 import {ReactComponent as CloseIcon} from "../../static/images/burger-menu/burger-menu-close-icon-24px.svg";
 import styles from "./BurgerMenuBtn.module.scss";
 
-import burgerMenuSelector from "../../redux/burgerMenu/burgerMenuSelector";
-import burgerMenuActions from "../../redux/burgerMenu/burgerMenuActions";
+import toggleComponentsSelector from "../../redux/toggleComponents/toggleComponentsSelector";
+import toggleComponentsActions from "../../redux/toggleComponents/toggleComponentsActions";
 
 class BurgerMenuBtn extends Component {
   state = {
@@ -31,11 +31,11 @@ class BurgerMenuBtn extends Component {
 }
 
 const mapStateToProps = state => ({
-  burgerMenu: burgerMenuSelector.getBurgerMenu(state),
+  burgerMenu: toggleComponentsSelector.getBurgerMenu(state),
 });
 
 const mapDispatchToProps = {
-  onToggleBurgerMenu: burgerMenuActions.toggleBurgerMenu,
+  onToggleBurgerMenu: toggleComponentsActions.toggleBurgerMenu,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BurgerMenuBtn);
