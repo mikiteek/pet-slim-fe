@@ -6,10 +6,9 @@ import styles from "./DailyCaloriesIntake.module.scss";
 class DailyCaloriesIntake extends Component {
   render() {
     const {summary: {notAllowedCategories, dayNormCalories}} = this.props;
-    const sectionStyles = [styles.dailySection, "container"].join(" ");
     return (
       <div className={styles.section}>
-        <section className={sectionStyles}>
+        <section className={styles.dailySection}>
           <h2 className={styles.dailySectionTitle}>Ваша рекомендуемая суточная норма калорий составляет</h2>
           <div className={styles.dailySectionBlock}>
             {dayNormCalories &&

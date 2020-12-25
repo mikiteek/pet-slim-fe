@@ -7,10 +7,17 @@
 }
 
 .dailySection {
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 40px;
   padding-bottom: 80px;
+  width: 290px;
   @media (min-width: 768px) {
     padding-top: 60px;
+    width: 594px;
+  }
+  @media (min-width: 1280px) {
+    width: 690px;
   }
 }
 
