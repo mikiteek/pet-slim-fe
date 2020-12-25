@@ -1,13 +1,38 @@
 @import "../../static/scss/mixins";
+@import "./variables";
 
 .titleForm {
   @include my-font-styles(#212121, 26px, 18px, 700);
   margin-bottom: 32px;
+  @media (min-width: 768px) {
+    margin-bottom: 60px;
+    max-width: 550px;
+    @include my-font-styles(#212121, 100%, 30px, 700);
+  }
+  @media (min-width: 1280px) {
+    font-size: 34px;
+  }
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
+}
+.inputBlock {
+  margin-bottom: 40px;
+  @extend %flex-column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 60px;
+  }
+}
+.inputBlockSide:not(:last-child) {
+  @media (min-width: 768px) {
+    margin-right: 24px;
+  }
+}
+
+.inputBlockSide {
+  @extend %flex-column;
 }
 
 .formInput {
@@ -18,13 +43,20 @@
   @include my-font-styles(#212121, 1.2, 14px, 700);
   letter-spacing: 0.04em;
   padding-bottom: 10px;
-  margin-bottom: 30px;
   &::placeholder {
     @include my-font-styles(#9b9faa, 100%, 14px, 700);
   }
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     appearance: none;
+  }
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  &:last-child {
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -36,9 +68,11 @@
 .radioBtnList {
   display: flex;
   position: relative;
-  margin-bottom: 40px;
   & li:not(:last-child) {
     margin-right: 28px;
+  }
+  @media (min-width: 768px) {
+    transform: translateX(10px);
   }
 }
 .radioBtn::before {
@@ -81,6 +115,11 @@
   letter-spacing: 0.04em;
 }
 
+.buttonSubmitBlock {
+  max-width: 504px;
+  display: flex;
+}
+
 .buttonSubmit {
   margin-right: auto;
   margin-left: auto;
@@ -92,4 +131,8 @@
   border-radius: 30px;
   @include my-font-styles(#fff, 100%, 14px, 700);
   letter-spacing: 0.04em;
+  @media (min-width: 768px) and (max-width: 1279px)  {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }

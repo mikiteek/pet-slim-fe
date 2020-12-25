@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BurgerMenuBtn/>
-        <Logo/>
-        <UserInfo/>
+        {/*<BurgerMenuBtn/>*/}
+        {/*<Logo/>*/}
+        {/*<UserInfo/>*/}
         {/*<BurgerMenu/>*/}
         <DailyCaloriesNorm/>
       </div>
