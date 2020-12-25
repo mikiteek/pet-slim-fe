@@ -1,4 +1,9 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import userOperations from "../../redux/user/userOperations";
+import userSelector from "../../redux/user/userSelector";
+import userActions from "../../redux/user/userActions";
+import toggleComponentsActions from "../../redux/toggleComponents/toggleComponentsActions";
 import styles from "./DailyCaloriesNorm.module.scss";
 
 class DailyCaloriesNorm extends Component {
@@ -12,7 +17,13 @@ class DailyCaloriesNorm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const {state: {height, age, currentWeight, targetWeight, bloodType},
+      state,
+      props: {onGetSummary, onAddSelfSummary, onToggleModalWindow}} = this;
+    onAddSelfSummary(state);
+    onGetSummary(height, age, currentWeight, targetWeight, bloodType);
     this.resetState();
+    onToggleModalWindow();
   }
 
   resetState = () => {
@@ -103,4 +114,14 @@ class DailyCaloriesNorm extends Component {
   }
 }
 
-export default DailyCaloriesNorm;
+const mapStateToProps = state => ({
+  summary: userSelector.getSummary(state),
+});
+
+const mapDispatchToProps = {
+  onAddSelfSummary: userActions.addSelfSummary,
+  onGetSummary: userOperations.getSummary,
+  onToggleModalWindow: toggleComponentsActions.toggleModal,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DailyCaloriesNorm);
