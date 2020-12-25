@@ -1,0 +1,138 @@
+@import "../../static/scss/mixins";
+@import "./variables";
+
+.titleForm {
+  @include my-font-styles(#212121, 26px, 18px, 700);
+  margin-bottom: 32px;
+  @media (min-width: 768px) {
+    margin-bottom: 60px;
+    max-width: 550px;
+    @include my-font-styles(#212121, 100%, 30px, 700);
+  }
+  @media (min-width: 1280px) {
+    font-size: 34px;
+  }
+}
+
+.form {
+  @extend %flex-column;
+}
+.inputBlock {
+  margin-bottom: 40px;
+  @extend %flex-column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 60px;
+  }
+}
+.inputBlockSide:not(:last-child) {
+  @media (min-width: 768px) {
+    margin-right: 24px;
+  }
+}
+
+.inputBlockSide {
+  @extend %flex-column;
+}
+
+.formInput {
+  width: 240px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  @include my-font-styles(#212121, 1.2, 14px, 700);
+  letter-spacing: 0.04em;
+  padding-bottom: 10px;
+  &::placeholder {
+    @include my-font-styles(#9b9faa, 100%, 14px, 700);
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  &:last-child {
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.groupBloodTitle {
+  @include my-font-styles(#9b9faa, 100%, 14px, 700);
+  margin-bottom: 8px;
+}
+
+.radioBtnList {
+  display: flex;
+  position: relative;
+  & li:not(:last-child) {
+    margin-right: 28px;
+  }
+  @media (min-width: 768px) {
+    transform: translateX(10px);
+  }
+}
+.radioBtn::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-25%, -25%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+}
+
+.radioBtn {
+  position: relative;
+  cursor: pointer;
+  margin-right: 6px;
+  outline: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: none;
+  border-radius: 50%;
+  &:checked {
+    background: #fc842d;
+  }
+  &:checked + label {
+    color: #fc842d;
+  }
+}
+.radioBtnLabel {
+  @include my-font-styles(#9b9faa, 100%, 14px, 700);
+  letter-spacing: 0.04em;
+}
+
+.buttonSubmitBlock {
+  max-width: 504px;
+  display: flex;
+}
+
+.buttonSubmit {
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  width: 176px;
+  height: 44px;
+  background-color: #fc842d;
+  border-radius: 30px;
+  @include my-font-styles(#fff, 100%, 14px, 700);
+  letter-spacing: 0.04em;
+  @media (min-width: 768px) and (max-width: 1279px)  {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
