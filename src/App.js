@@ -5,9 +5,14 @@ import BurgerMenu from "./components/BurgerMenu";
 import BurgerMenuBtn from "./components/BurgerMenuBtn";
 import ModalWindow from "./components/ModalWindow";
 import DailyCaloriesNorm from "./components/DailyCaloriesNorm";
+import DailyCaloriesIntake from "./components/DailyCaloriesIntake";
+import {connect} from "react-redux";
+import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
+import userSelector from "./redux/user/userSelector";
 
 class App extends Component {
   render() {
+    const {modal, summary: {dayNormCalories}} = this.props;
     return (
       <div>
         {/*<BurgerMenuBtn/>*/}
@@ -15,9 +20,17 @@ class App extends Component {
         {/*<UserInfo/>*/}
         {/*<BurgerMenu/>*/}
         <DailyCaloriesNorm/>
+        {modal && dayNormCalories && <ModalWindow>
+          <DailyCaloriesIntake/>
+        </ModalWindow>}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  modal: toggleComponentsSelector.getModalWindow(state),
+  summary: userSelector.getSummary(state),
+})
+
+export default connect(mapStateToProps)(App);

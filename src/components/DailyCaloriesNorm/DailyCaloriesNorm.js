@@ -8,11 +8,15 @@ import styles from "./DailyCaloriesNorm.module.scss";
 
 class DailyCaloriesNorm extends Component {
   state = {
-    height: "",
-    age: "",
-    currentWeight: "",
-    targetWeight: "",
-    bloodType: ""
+    height: "170",
+    age: "31",
+    currentWeight: "70",
+    targetWeight: "65",
+    bloodType: "2"
+  }
+
+  componentWillUnmount() {
+    this.resetState();
   }
 
   handleSubmit = (event) => {
@@ -22,7 +26,6 @@ class DailyCaloriesNorm extends Component {
       props: {onGetSummary, onAddSelfSummary, onToggleModalWindow}} = this;
     onAddSelfSummary(state);
     onGetSummary(height, age, currentWeight, targetWeight, bloodType);
-    this.resetState();
     onToggleModalWindow();
   }
 
