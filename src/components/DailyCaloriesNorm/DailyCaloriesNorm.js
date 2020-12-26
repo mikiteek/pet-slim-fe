@@ -42,8 +42,8 @@ class DailyCaloriesNorm extends Component {
   handleChange = (event) => {
     const {target: {name, value}} = event;
     this.setState({[name]: value});
-
   }
+
   handleRadioBtnChange = (event) => {
     this.setState({bloodType: event.target.value});
   }

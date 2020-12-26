@@ -1,0 +1,20 @@
+@import "../../static/scss/mixins";
+
+.buttonSubmit {
+  //display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 176px;
+  height: 44px;
+  background-color: #fc842d;
+  border-radius: 30px;
+  @include my-font-styles(#fff, 100%, 14px, 700);
+  letter-spacing: 0.04em;
+}
+
+.isLinkToPage {
+  background-color: transparent;
+  border: #fc842d solid 2px;
+  color: #fc842d;
+}
