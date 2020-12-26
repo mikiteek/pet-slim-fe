@@ -1,5 +1,9 @@
 import React, {Component} from "react";
 import {ValidatorForm} from "react-form-validator-core";
+import {withRouter} from "react-router";
+import {connect} from "react-redux";
+import userSelector from "../../redux/user/userSelector";
+import userOperations from "../../redux/user/userOperations";
 import TextValidator from "../TextValidator";
 import Button from "../Button/Button";
 import styles from "./RegisterForm.module.scss";
@@ -17,7 +21,7 @@ class RegisterForm extends Component {
   }
 
   handleClick = (page) => {
-    console.log("click", page);
+    this.props.history.push(`/users/${page}`);
   }
 
   handleChange = (event) => {
@@ -42,6 +46,7 @@ class RegisterForm extends Component {
               typw="text"
               value={name}
               placeholder="Имя *"
+              containerProps={styles.testStyles}
               validators={["required", "minStringLength:2", "maxStringLength:40"]}
               errorMessages={["name is required", "enter more than 1 symbols", "enter less than 41 symbols"]}
             />
@@ -66,7 +71,7 @@ class RegisterForm extends Component {
           </div>
           <div className={styles.buttonsBlock}>
             <Button type="submit" value="Регистрация"/>
-            <Button type="button" value="Вход" page="/login" onFollowPage={this.handleClick}/>
+            <Button type="button" value="Вход" page="login" onFollowPage={this.handleClick}/>
           </div>
         </ValidatorForm>
       </div>
@@ -74,4 +79,12 @@ class RegisterForm extends Component {
   }
 }
 
-export default RegisterForm;
+const mapStateToProps = state => ({
+  user: userSelector.getUser(state),
+});
+
+const mapDispatchToProps = {
+  onRegisterUser: userOperations.register,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RegisterForm));

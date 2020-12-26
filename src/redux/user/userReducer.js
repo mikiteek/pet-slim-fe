@@ -12,6 +12,17 @@ const summary = createReducer({}, {
   },
 });
 
+const user = createReducer({}, {
+  [userActions.registerSuccess]: (state, {payload}) => payload,
+});
+
+const error = createReducer({}, {
+  [userActions.getSummaryError]: (state, {payload}) => payload,
+  [userActions.registerError]: (state, {payload}) => payload,
+});
+
 export default combineReducers({
   summary,
+  user,
+  error,
 });

@@ -36,7 +36,11 @@
     @media (max-width: 767px) {
       margin-bottom: 20px;
     }
+    @media (min-width: 768px) {
+      margin-right: 30px;
+    }
+  }
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }
-
-
