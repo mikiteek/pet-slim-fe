@@ -21,11 +21,9 @@ class DailyCaloriesNorm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const {state: {height, age, currentWeight, targetWeight, bloodType},
-      state,
-      props: {onGetSummary, onAddSelfSummary, onToggleModalWindow}} = this;
+    const {state, props: {onGetSummary, onAddSelfSummary, onToggleModalWindow}} = this;
     onAddSelfSummary(state);
-    onGetSummary(height, age, currentWeight, targetWeight, bloodType);
+    onGetSummary(state);
     onToggleModalWindow();
   }
 
@@ -42,8 +40,8 @@ class DailyCaloriesNorm extends Component {
   handleChange = (event) => {
     const {target: {name, value}} = event;
     this.setState({[name]: value});
-
   }
+
   handleRadioBtnChange = (event) => {
     this.setState({bloodType: event.target.value});
   }

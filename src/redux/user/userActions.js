@@ -6,9 +6,19 @@ const getSummaryError = createAction("summary/getError");
 
 const addSelfSummary = createAction("seflSummary/addSummary");
 
+const registerRequest = createAction("register/registerRequest");
+const registerSuccess = createAction("register/registerSuccess");
+const registerError = createAction("register/registerError");
+
+const resetError = createAction("error/resetError");
+
 export default {
   getSummaryRequest,
   getSummarySuccess,
   getSummaryError,
   addSelfSummary,
+  registerRequest,
+  registerSuccess,
+  registerError,
+  resetError,
 }
