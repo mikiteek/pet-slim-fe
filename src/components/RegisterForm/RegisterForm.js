@@ -1,11 +1,17 @@
 import React, {Component} from "react";
 import {ValidatorForm} from "react-form-validator-core";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
+
 import userSelector from "../../redux/user/userSelector";
 import userOperations from "../../redux/user/userOperations";
+import userActions from "../../redux/user/userActions";
+
 import TextValidator from "../TextValidator";
 import Button from "../Button/Button";
+import {errorNotify} from "../../utils/notify";
 import styles from "./RegisterForm.module.scss";
 
 class RegisterForm extends Component {
@@ -15,9 +21,20 @@ class RegisterForm extends Component {
     password: "",
   }
 
-  handleSubmit = (event) => {
+  componentDidUpdate(prevProps) {
+    if (prevProps.user.id !== this.props.user.id) {
+      this.resetState();
+      setTimeout(() => this.props.history.push(`/users/login`), 3000);
+    }
+  }
+
+  resetState = () => {
+    this.setState({name: "", email: "", password: ""});
+  }
+
+  handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("submit event");
+    this.props.onRegisterUser(this.state);
   }
 
   handleClick = (page) => {
@@ -29,9 +46,18 @@ class RegisterForm extends Component {
     this.setState({[name]: value});
   }
 
+  handleError = () => {
+    const {error: {data}, onResetError} = this.props;
+    errorNotify(data.message);
+    onResetError();
+  }
+
   render() {
     const formBlockStyles = [styles.formBlock, "container"].join(" ");
     const {name, email, password} = this.state;
+    if (this.props.error.data) {
+      this.handleError();
+    }
     return (
       <div className={formBlockStyles}>
         <h2 className={styles.formTitle}>Регистрация</h2>
@@ -46,7 +72,6 @@ class RegisterForm extends Component {
               typw="text"
               value={name}
               placeholder="Имя *"
-              containerProps={styles.testStyles}
               validators={["required", "minStringLength:2", "maxStringLength:40"]}
               errorMessages={["name is required", "enter more than 1 symbols", "enter less than 41 symbols"]}
             />
@@ -74,6 +99,7 @@ class RegisterForm extends Component {
             <Button type="button" value="Вход" page="login" onFollowPage={this.handleClick}/>
           </div>
         </ValidatorForm>
+        <ToastContainer/>
       </div>
     );
   }
@@ -81,10 +107,12 @@ class RegisterForm extends Component {
 
 const mapStateToProps = state => ({
   user: userSelector.getUser(state),
+  error: userSelector.getError(state),
 });
 
 const mapDispatchToProps = {
   onRegisterUser: userOperations.register,
+  onResetError: userActions.resetError,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RegisterForm));

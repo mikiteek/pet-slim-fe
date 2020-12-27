@@ -10,6 +10,8 @@ const registerRequest = createAction("register/registerRequest");
 const registerSuccess = createAction("register/registerSuccess");
 const registerError = createAction("register/registerError");
 
+const resetError = createAction("error/resetError");
+
 export default {
   getSummaryRequest,
   getSummarySuccess,
@@ -17,5 +19,6 @@ export default {
   addSelfSummary,
   registerRequest,
   registerSuccess,
-  registerError
+  registerError,
+  resetError,
 }

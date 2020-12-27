@@ -7,6 +7,7 @@ import ModalWindow from "./components/ModalWindow";
 import DailyCaloriesNorm from "./components/DailyCaloriesNorm";
 import DailyCaloriesIntake from "./components/DailyCaloriesIntake";
 import RegisterForm from "./components/RegisterForm";
+import Spinner from "./components/Spinner";
 import {connect} from "react-redux";
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
 import userSelector from "./redux/user/userSelector";
@@ -25,6 +26,7 @@ class App extends Component {
         {/*{modal && dayNormCalories && <ModalWindow>*/}
         {/*  <DailyCaloriesIntake/>*/}
         {/*</ModalWindow>}*/}
+        {/*{this.props.spinner && <Spinner/>}*/}
       </div>
     );
   }
@@ -33,6 +35,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   modal: toggleComponentsSelector.getModalWindow(state),
   summary: userSelector.getSummary(state),
+  spinner: toggleComponentsSelector.getSpinner(state),
 })
 
 export default connect(mapStateToProps)(App);

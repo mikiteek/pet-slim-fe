@@ -10,7 +10,12 @@ const modalWindow = createReducer(false, {
   [toggleComponentsActions.toggleModal]: state => !state,
 });
 
+const spinner = createReducer(false, {
+  [toggleComponentsActions.toggleSpinner]: state => !state,
+});
+
 export default combineReducers({
   burgerMenu,
-  modalWindow
+  modalWindow,
+  spinner,
 })
