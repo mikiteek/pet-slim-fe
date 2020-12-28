@@ -10,6 +10,10 @@ const registerRequest = createAction("register/registerRequest");
 const registerSuccess = createAction("register/registerSuccess");
 const registerError = createAction("register/registerError");
 
+const loginRequest = createAction("login/loginRequest");
+const loginSuccess = createAction("login/loginSuccess");
+const loginError = createAction("login/loginError");
+
 const resetError = createAction("error/resetError");
 
 export default {
@@ -20,5 +24,8 @@ export default {
   registerRequest,
   registerSuccess,
   registerError,
+  loginRequest,
+  loginSuccess,
+  loginError,
   resetError,
 }

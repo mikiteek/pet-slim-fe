@@ -3,13 +3,15 @@
 
 .inputBlock {
   position: relative;
+  height: 48px;
   @media (min-width: 768px) {
     width: 240px;
   }
-  & > div {
-    position: absolute;
-    top: 35px;
-  }
+}
+
+.error {
+  position: absolute;
+  top: 35px;
 }
 
 .formInput {

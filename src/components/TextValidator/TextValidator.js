@@ -26,7 +26,7 @@ class TextValidator extends ValidatorComponent {
     }
 
     return (
-      <div style={{ color: 'red' }}>
+      <div style={{ color: 'red' }} className={styles.error}>
         {this.getErrorMessage()}
       </div>
     );

@@ -7,6 +7,7 @@ import ModalWindow from "./components/ModalWindow";
 import DailyCaloriesNorm from "./components/DailyCaloriesNorm";
 import DailyCaloriesIntake from "./components/DailyCaloriesIntake";
 import RegisterForm from "./components/RegisterForm";
+import LoginForm from "./components/LoginForm";
 import Spinner from "./components/Spinner";
 import {connect} from "react-redux";
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
@@ -17,7 +18,7 @@ class App extends Component {
     const {modal, summary: {dayNormCalories}} = this.props;
     return (
       <div>
-        <RegisterForm/>
+        <LoginForm/>
         {/*<BurgerMenuBtn/>*/}
         {/*<Logo/>*/}
         {/*<UserInfo/>*/}
