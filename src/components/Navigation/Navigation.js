@@ -1,13 +1,18 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import UserInfo from "../UserInfo";
+import BurgerMenuBtn from "../BurgerMenuBtn";
+import Logo from "../Logo";
 
 import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {
   render() {
-    const isAuthorized = false;
+    const isAuthorized = true;
     return (
-      <nav>
+      <nav className={styles.nav}>
+        <Logo/>
+        <div className={styles.verticalSeparator}></div>
         <ul className={styles.navList}>
           <li className={styles.navListItem}>
             <NavLink
@@ -28,6 +33,8 @@ class Navigation extends Component {
             </NavLink>
           </li>
         </ul>
+        {isAuthorized && <UserInfo/>}
+        {isAuthorized && <BurgerMenuBtn/>}
       </nav>
     );
   }
