@@ -12,20 +12,12 @@ import userActions from "../../redux/user/userActions";
 import TextValidator from "../TextValidator";
 import Button from "../Button/Button";
 import {errorNotify} from "../../utils/notify";
-import styles from "./RegisterForm.module.scss";
+import styles from "./LoginForm.module.scss";
 
-class RegisterForm extends Component {
+class LoginForm extends Component {
   state = {
-    name: "",
     email: "",
     password: "",
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.user.id !== this.props.user.id) {
-      this.resetState();
-      setTimeout(() => this.props.history.push(`/users/login`), 3000);
-    }
   }
 
   componentWillUnmount() {
@@ -33,12 +25,12 @@ class RegisterForm extends Component {
   }
 
   resetState = () => {
-    this.setState({name: "", email: "", password: ""});
+    this.setState({email: "", password: ""});
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    this.props.onRegisterUser(this.state);
+    this.props.onLoginUser(this.state);
   }
 
   handleClick = (page) => {
@@ -58,27 +50,18 @@ class RegisterForm extends Component {
 
   render() {
     const formBlockStyles = [styles.formBlock, "container"].join(" ");
-    const {name, email, password} = this.state;
+    const {email, password} = this.state;
     if (this.props.error.data) {
       this.handleError();
     }
     return (
       <div className={formBlockStyles}>
-        <h2 className={styles.formTitle}>Регистрация</h2>
+        <h2 className={styles.formTitle}>Вход</h2>
         <ValidatorForm
           ref="form"
           onSubmit={this.handleSubmit}
         >
           <div className={styles.inputsBlock}>
-            <TextValidator
-              onChange={this.handleChange}
-              name="name"
-              typw="text"
-              value={name}
-              placeholder="Имя *"
-              validators={["required", "minStringLength:2", "maxStringLength:40"]}
-              errorMessages={["name is required", "enter more than 1 symbols", "enter less than 41 symbols"]}
-            />
             <TextValidator
               onChange={this.handleChange}
               name="email"
@@ -99,8 +82,8 @@ class RegisterForm extends Component {
             />
           </div>
           <div className={styles.buttonsBlock}>
-            <Button type="submit" value="Регистрация"/>
-            <Button type="button" value="Вход" page="login" onFollowPage={this.handleClick}/>
+            <Button type="submit" value="Вход"/>
+            <Button type="button" value="Регистрация" page="register" onFollowPage={this.handleClick}/>
           </div>
         </ValidatorForm>
         <ToastContainer/>
@@ -115,8 +98,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onRegisterUser: userOperations.register,
+  onLoginUser: userOperations.login,
   onResetError: userActions.resetError,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RegisterForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginForm));
