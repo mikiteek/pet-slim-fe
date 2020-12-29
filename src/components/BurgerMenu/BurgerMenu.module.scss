@@ -7,3 +7,14 @@
     padding-top: 108px;
   }
 }
+
+.navListItem:not(:last-child) {
+  margin-bottom: 30px;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1280px) {
+    margin-right: 22px;
+    margin-bottom: 0;
+  }
+}

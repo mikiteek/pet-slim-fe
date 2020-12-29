@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import userOperations from "../../redux/user/userOperations";
 import styles from "./UserInfo.module.scss";
 
 class UserInfo extends Component {
   handleButtonClick() {
-    console.log("click on button 'Выйти'");
-    console.log("Unset token");
+    this.props.onLogoutUser();
   }
 
   render() {
@@ -23,4 +24,9 @@ class UserInfo extends Component {
     );
   }
 }
-export default UserInfo;
+
+const mapDispatchToProps = {
+  onLogoutUser: userOperations.logout,
+}
+
+export default connect(null, mapDispatchToProps)(UserInfo);

@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import {withRouter} from "react-router";
+import {connect} from "react-redux";
+import userSelector from "../../redux/user/userSelector";
 import UserInfo from "../UserInfo";
 import BurgerMenuBtn from "../BurgerMenuBtn";
 import Logo from "../Logo";
@@ -8,12 +11,14 @@ import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {
   render() {
-    const isAuthorized = true;
+    const {location, isAuthorized} = this.props;
+    const showSeparateLine = (location.pathname !== "/register" && location.pathname !== "/login");
+    const navListStyles = showSeparateLine ? styles.navList: styles.navListPages;
     return (
       <nav className={styles.nav}>
         <Logo/>
-        <div className={styles.verticalSeparator}></div>
-        <ul className={styles.navList}>
+        {showSeparateLine && <div className={styles.verticalSeparator}></div>}
+        <ul className={navListStyles}>
           <li className={styles.navListItem}>
             <NavLink
               to={isAuthorized? "/diary": "/login"}
@@ -40,4 +45,8 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = state => ({
+  isAuthorized: userSelector.isAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(withRouter(Navigation));

@@ -2,6 +2,12 @@
 
 .nav {
   display: flex;
+  & *:first-child {
+    margin-right: auto;
+    @media (min-width: 1280px) {
+      margin-right: 0;
+    }
+  }
 }
 
 .verticalSeparator {
@@ -9,24 +15,26 @@
   width: 2px;
   height: 32px;
   background-color: #e0e0e0;
+  @media (max-width: 1279px) {
+    display: none;
+  }
 }
 
 .navList {
+  display: flex;
+  align-items: center;
+}
+
+.navListPages {
+  display: flex;
+  align-items: center;
   @media (min-width: 1280px) {
-    display: flex;
-    align-items: center;
+    display: none;
   }
 }
 
 .navListItem:not(:last-child) {
-  margin-bottom: 30px;
-  @media (min-width: 768px) {
-    margin-bottom: 20px;
-  }
-  @media (min-width: 1280px) {
-    margin-right: 22px;
-    margin-bottom: 0;
-  }
+  margin-right: 22px;
 }
 
 .navListItemLink {
@@ -35,8 +43,5 @@
 }
 
 .navListItemLinkActive {
-  color: #fff;
-  @media (min-width: 1280px) {
-    color: #212121;
-  }
+  color: #212121;
 }
