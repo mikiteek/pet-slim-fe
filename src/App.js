@@ -9,6 +9,7 @@ import DailyCaloriesIntake from "./components/DailyCaloriesIntake";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 import Navigation from "./components/Navigation";
+import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Spinner from "./components/Spinner";
 import {connect} from "react-redux";
@@ -20,7 +21,8 @@ class App extends Component {
     const {modal, summary: {dayNormCalories}} = this.props;
     return (
       <Layout>
-        <Navigation/>
+        <Header/>
+        {/*<Navigation/>*/}
       </Layout>
     );
   }

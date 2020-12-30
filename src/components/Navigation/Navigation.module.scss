@@ -2,7 +2,8 @@
 
 .nav {
   display: flex;
-  & *:first-child {
+  flex-wrap: wrap;
+  & a:first-child {
     margin-right: auto;
     @media (min-width: 1280px) {
       margin-right: 0;
@@ -33,6 +34,12 @@
   }
 }
 
+.navListTablet {
+  @media (max-width: 1279px) {
+    display: none;
+  }
+}
+
 .navListItem:not(:last-child) {
   margin-right: 22px;
 }
@@ -44,4 +51,19 @@
 
 .navListItemLinkActive {
   color: #212121;
+}
+
+.burgerMenuBlock,  {
+  display: flex;
+  align-items: center;
+  @media (min-width: 1280px) {
+    display: none;
+  }
+}
+.userInfoBlock {
+  display: none;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
+  }
 }

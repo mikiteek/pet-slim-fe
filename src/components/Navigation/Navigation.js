@@ -11,14 +11,17 @@ import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {
   render() {
-    const {location, isAuthorized} = this.props;
+    // const {location, isAuthorized} = this.props;
+    const {location} = this.props;
+    const isAuthorized = true;
     const showSeparateLine = (location.pathname !== "/register" && location.pathname !== "/login");
     const navListStyles = showSeparateLine ? styles.navList: styles.navListPages;
+    const navListStylesAuth = isAuthorized ? [navListStyles, styles.navListTablet].join(" "): navListStyles;
     return (
       <nav className={styles.nav}>
         <Logo/>
         {showSeparateLine && <div className={styles.verticalSeparator}></div>}
-        <ul className={navListStyles}>
+        <ul className={navListStylesAuth}>
           <li className={styles.navListItem}>
             <NavLink
               to={isAuthorized? "/diary": "/login"}
@@ -38,8 +41,8 @@ class Navigation extends Component {
             </NavLink>
           </li>
         </ul>
-        {isAuthorized && <UserInfo/>}
-        {isAuthorized && <BurgerMenuBtn/>}
+        {isAuthorized && <div className={styles.userInfoBlock}><UserInfo/></div>}
+        {isAuthorized && <div className={styles.burgerMenuBlock}><BurgerMenuBtn/></div>}
       </nav>
     );
   }
