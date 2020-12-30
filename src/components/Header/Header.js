@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import Navigation from "../Navigation";
 import UserInfo from "../UserInfo";
+import {connect} from "react-redux";
+import userSelector from "../../redux/user/userSelector";
 import styles from "./Header.module.scss";
 
 class Header extends Component {
@@ -11,14 +13,19 @@ class Header extends Component {
         <div className="container">
           <Navigation/>
         </div>
+        {this.props.isAuthorized &&
         <div className={styles.userInfoWrapper}>
           <div className={userInfoStyles}>
             <UserInfo/>
           </div>
-        </div>
+        </div>}
       </header>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  isAuthorized: userSelector.isAuthenticated(state),
+})
+
+export default connect(mapStateToProps)(Header);

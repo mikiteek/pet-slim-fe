@@ -11,9 +11,7 @@ import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {
   render() {
-    // const {location, isAuthorized} = this.props;
-    const {location} = this.props;
-    const isAuthorized = true;
+    const {location, isAuthorized} = this.props;
     const showSeparateLine = (location.pathname !== "/register" && location.pathname !== "/login");
     const navListStyles = showSeparateLine ? styles.navList: styles.navListPages;
     const navListStylesAuth = isAuthorized ? [navListStyles, styles.navListTablet].join(" "): navListStyles;
