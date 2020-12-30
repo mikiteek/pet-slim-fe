@@ -1,9 +1,18 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {withRouter} from "react-router";
 import userSelector from "../../redux/user/userSelector";
 import styles from "./DailyCaloriesIntake.module.scss";
 
 class DailyCaloriesIntake extends Component {
+  handleClickBtn = () => {
+    const {history, isAuthorized} = this.props;
+    if (isAuthorized) {
+      history.push("/diary");
+    }
+    history.push("/users/login");
+  }
+
   render() {
     const {summary: {notAllowedCategories, dayNormCalories}} = this.props;
     return (
@@ -24,7 +33,7 @@ class DailyCaloriesIntake extends Component {
             }
           </div>
           <div className={styles.buttonSubmitBlock}>
-            <button className={styles.buttonSubmit} type="button">Начать худеть</button>
+            <button className={styles.buttonSubmit} type="button" onClick={this.handleClickBtn}>Начать худеть</button>
           </div>
         </section>
       </div>
@@ -34,6 +43,7 @@ class DailyCaloriesIntake extends Component {
 
 const mapStateToProps = state => ({
   summary: userSelector.getSummary(state),
+  isAuthorized: userSelector.getToken(state),
 });
 
-export default connect(mapStateToProps)(DailyCaloriesIntake);
+export default connect(mapStateToProps)(withRouter(DailyCaloriesIntake));

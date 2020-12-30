@@ -1,3 +1,5 @@
+@import "../../static/scss/mixins";
+
 .burgerMenu {
   padding-top: 60px;
   background-color: #264061;
@@ -6,4 +8,28 @@
   @media (min-width: 768px) {
     padding-top: 108px;
   }
+}
+
+.navList {
+
+}
+
+.navListItem:not(:last-child) {
+  margin-bottom: 30px;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1280px) {
+    margin-right: 22px;
+    margin-bottom: 0;
+  }
+}
+
+.navListItemLink {
+  @include my-font-styles(#9b9faa, 1.2, 14px, 700);
+  text-transform: uppercase;
+}
+
+.navListItemLinkActive {
+  color: #fff;
 }

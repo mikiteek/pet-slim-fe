@@ -8,6 +8,9 @@ import DailyCaloriesNorm from "./components/DailyCaloriesNorm";
 import DailyCaloriesIntake from "./components/DailyCaloriesIntake";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
+import Navigation from "./components/Navigation";
+import Header from "./components/Header";
+import Layout from "./components/Layout";
 import Spinner from "./components/Spinner";
 import {connect} from "react-redux";
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
@@ -17,18 +20,10 @@ class App extends Component {
   render() {
     const {modal, summary: {dayNormCalories}} = this.props;
     return (
-      <div>
-        <LoginForm/>
-        {/*<BurgerMenuBtn/>*/}
-        {/*<Logo/>*/}
-        {/*<UserInfo/>*/}
-        {/*<BurgerMenu/>*/}
-        {/*<DailyCaloriesNorm/>*/}
-        {/*{modal && dayNormCalories && <ModalWindow>*/}
-        {/*  <DailyCaloriesIntake/>*/}
-        {/*</ModalWindow>}*/}
-        {/*{this.props.spinner && <Spinner/>}*/}
-      </div>
+      <Layout>
+        <Header/>
+        {/*<Navigation/>*/}
+      </Layout>
     );
   }
 }

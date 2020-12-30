@@ -1,0 +1,48 @@
+%bg-styles {
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wrapperMain {
+  @extend %bg-styles;
+  @media (min-width: 768px) {
+    background-image: url("../../static/images/background-main/bg-tablet@1x.png");
+  }
+  @media (min-width: 1280px) {
+    background-image: url("../../static/images/background-main/bg-desktop@1x.png");
+  }
+
+  @media (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-width: 768px) {
+      background-image: url("../../static/images/background-main/bg-tablet@2x.png");
+    }
+    @media (min-width: 1280px) {
+      background-image: url("../../static/images/background-main/bg-desktop@2x.png");
+    }
+  }
+}
+
+.wrapperPages {
+  @extend %bg-styles;
+  @media (min-width: 768px) {
+    background-image: url("../../static/images/background-pages/bg-tablet@1x.png");
+  }
+  @media (min-width: 1280px) {
+    background-image: url("../../static/images/background-pages/bg-desktop@1x.png");
+  }
+
+  @media (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-width: 768px) {
+      background-image: url("../../static/images/background-pages/bg-tablet@2x.png");
+    }
+    @media (min-width: 1280px) {
+      background-image: url("../../static/images/background-pages/bg-desktop@2x.png");
+    }
+  }
+}
+
+.wrapperAuthorized {
+
+}

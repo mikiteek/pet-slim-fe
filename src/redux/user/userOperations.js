@@ -52,8 +52,23 @@ const login = credentials => dispatch => {
     .finally(() => dispatch(toggleComponentsActions.toggleSpinner()));
 }
 
+const logout = () => dispatch => {
+  dispatch(userActions.logoutRequest());
+  dispatch(toggleComponentsActions.toggleSpinner());
+
+  axios
+    .post("/users/logout")
+    .then(() => {
+      token.unset();
+      dispatch(userActions.logoutSuccess());
+    })
+    .catch(({response}) => dispatch(userActions.logoutError(response)))
+    .finally(() => dispatch(toggleComponentsActions.toggleSpinner()));
+}
+
 export default {
   getSummary,
   register,
   login,
+  logout,
 }

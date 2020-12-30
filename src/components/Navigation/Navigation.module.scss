@@ -1,26 +1,47 @@
 @import "../../static/scss/mixins";
 
-.navList {
-  @media (min-width: 1280px) {
-    display: flex;
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  & a:first-child {
+    margin-right: auto;
+    @media (min-width: 1280px) {
+      margin-right: 0;
+    }
   }
 }
 
-.navListItem {
+.verticalSeparator {
+  margin: auto 22px auto 22px;
+  width: 2px;
+  height: 32px;
+  background-color: #e0e0e0;
   @media (max-width: 1279px) {
-    text-align: center;
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+}
+
+.navListPages {
+  display: flex;
+  align-items: center;
+  @media (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.navListTablet {
+  @media (max-width: 1279px) {
+    display: none;
   }
 }
 
 .navListItem:not(:last-child) {
-  margin-bottom: 30px;
-  @media (min-width: 768px) {
-    margin-bottom: 20px;
-  }
-  @media (min-width: 1280px) {
-    margin-right: 22px;
-    margin-bottom: 0;
-  }
+  margin-right: 22px;
 }
 
 .navListItemLink {
@@ -29,8 +50,20 @@
 }
 
 .navListItemLinkActive {
-  color: #fff;
+  color: #212121;
+}
+
+.burgerMenuBlock,  {
+  display: flex;
+  align-items: center;
   @media (min-width: 1280px) {
-    color: #212121;
+    display: none;
+  }
+}
+.userInfoBlock {
+  display: none;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
   }
 }

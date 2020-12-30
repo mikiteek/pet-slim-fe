@@ -1,0 +1,26 @@
+.header {
+
+}
+
+.userInfoWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #eff1f3;
+  height: 40px;
+  width: 100%;
+  @media (min-width: 768px) {
+    height: 2px;
+  }
+  @media (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
