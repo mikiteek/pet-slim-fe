@@ -17,6 +17,7 @@ import {connect} from "react-redux";
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
 import userSelector from "./redux/user/userSelector";
 import LoginPage from "./views/LoginPage";
+import RegisterPage from "./views/RegisterPage";
 
 class App extends Component {
   render() {
@@ -24,7 +25,8 @@ class App extends Component {
     return (
       <Layout>
         {/*<MainPage/>*/}
-        <LoginPage/>
+        {/*<LoginPage/>*/}
+        {/*<RegisterPage/>*/}
         {spinner && <Spinner/>}
       </Layout>
     );
