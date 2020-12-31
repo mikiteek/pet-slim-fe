@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {ReactComponent as ReturnBtn} from "../../static/images/modal/return-icon.svg";
 import {ReactComponent as CloseModalBtn} from "../../static/images/modal/close-modal-icon.svg";
 import toggleComponentsActions from "../../redux/toggleComponents/toggleComponentsActions";
+import toggleComponentsSelector from "../../redux/toggleComponents/toggleComponentsSelector";
 import styles from "./ModalWindow.module.scss";
 
 class ModalWindow extends Component {
@@ -25,9 +26,11 @@ class ModalWindow extends Component {
           </div>
         </div>
         <div className={styles.modal}>
-          <div className={styles.closeModalBtn} onClick={this.handleCloseModal}>
-            <CloseModalBtn/>
-          </div>
+          {!this.props.spinner &&
+            <div className={styles.closeModalBtn} onClick={this.handleCloseModal}>
+              <CloseModalBtn/>
+            </div>
+          }
           {this.props.children}
         </div>
       </div>
@@ -35,8 +38,12 @@ class ModalWindow extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  spinner: toggleComponentsSelector.getSpinner(state),
+});
+
 const mapDispatchToProps = {
   onToggleModalWindow: toggleComponentsActions.toggleModal,
 }
 
-export default connect(null, mapDispatchToProps)(ModalWindow);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalWindow);

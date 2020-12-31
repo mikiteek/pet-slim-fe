@@ -4,7 +4,7 @@ import userOperations from "../../redux/user/userOperations";
 import styles from "./UserInfo.module.scss";
 
 class UserInfo extends Component {
-  handleButtonClick() {
+  handleButtonClick = () => {
     this.props.onLogoutUser();
   }
 

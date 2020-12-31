@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {ValidatorForm} from "react-form-validator-core";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {withRouter} from "react-router";
+import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 import userSelector from "../../redux/user/userSelector";
@@ -42,7 +42,7 @@ class RegisterForm extends Component {
   }
 
   handleClick = (page) => {
-    this.props.history.push(`/users/${page}`);
+    this.props.history.push(`/${page}`);
   }
 
   handleChange = (event) => {

@@ -13,18 +13,7 @@ class CalcPage extends Component {
     const {modal} = this.props;
     return (
       <div>
-        <div>
-          <Header/>
-          <main>
-            <DailyCaloriesNorm/>
-            {modal &&
-              <ModalWindow>
-                <DailyCaloriesIntake/>
-              </ModalWindow>
-            }
-          </main>
-        </div>
-        <div className={"Sidebar"}></div>
+        CALC PAGE
       </div>
     );
   }
