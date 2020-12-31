@@ -7,14 +7,16 @@ import ModalWindow from "../../components/ModalWindow";
 import {connect} from "react-redux";
 import toggleComponentsSelector from "../../redux/toggleComponents/toggleComponentsSelector";
 
+import styles from "./MainPage.module.scss";
+
 class MainPage extends Component {
   render() {
     const {modal} = this.props;
     return (
       <div>
         <Header/>
-        <main>
-          <DailyCaloriesNorm/>
+        <main className={styles.main}>
+          <DailyCaloriesNorm title="Посчитай свою суточную норму калорий прямо сейчас"/>
           {modal &&
           <ModalWindow>
             <DailyCaloriesIntake/>

@@ -7,18 +7,21 @@ import styles from "./Header.module.scss";
 
 class Header extends Component {
   render() {
+    const {isAuthorized} = this.props;
     const userInfoStyles = [styles.userInfo, "container"].join(" ");
+    const userInfoWrapperStyles = (isAuthorized)? styles.userInfoWrapper: [styles.userInfoWrapper, styles.userInfoWrapperSimple].join(" ");
     return (
       <header className={styles.header}>
         <div className="container">
           <Navigation/>
         </div>
-        {this.props.isAuthorized &&
-        <div className={styles.userInfoWrapper}>
+        <div className={userInfoWrapperStyles}>
+          { isAuthorized &&
           <div className={userInfoStyles}>
             <UserInfo/>
           </div>
-        </div>}
+          }
+        </div>
       </header>
     );
   }

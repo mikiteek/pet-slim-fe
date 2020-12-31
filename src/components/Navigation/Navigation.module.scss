@@ -2,12 +2,17 @@
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  height: 80px;
+  align-items: center;
   & a:first-child {
     margin-right: auto;
     @media (min-width: 1280px) {
       margin-right: 0;
     }
+  }
+  @media (min-width: 1280px) {
+    padding-top: 90px;
+    height: auto;
   }
 }
 
