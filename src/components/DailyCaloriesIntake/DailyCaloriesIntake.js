@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {withRouter} from "react-router";
+import {withRouter} from "react-router-dom";
 import userSelector from "../../redux/user/userSelector";
 import styles from "./DailyCaloriesIntake.module.scss";
 
@@ -9,8 +9,9 @@ class DailyCaloriesIntake extends Component {
     const {history, isAuthorized} = this.props;
     if (isAuthorized) {
       history.push("/diary");
+      return;
     }
-    history.push("/users/login");
+    history.push("/login");
   }
 
   render() {

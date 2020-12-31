@@ -1,41 +1,42 @@
-import React, {Component} from "react";
-import Logo from "./components/Logo";
-import UserInfo from "./components/UserInfo";
-import BurgerMenu from "./components/BurgerMenu";
-import BurgerMenuBtn from "./components/BurgerMenuBtn";
-import ModalWindow from "./components/ModalWindow";
-import DailyCaloriesNorm from "./components/DailyCaloriesNorm";
-import DailyCaloriesIntake from "./components/DailyCaloriesIntake";
-import RegisterForm from "./components/RegisterForm";
-import LoginForm from "./components/LoginForm";
-import Navigation from "./components/Navigation";
-import Header from "./components/Header";
-import Layout from "./components/Layout";
-import MainPage from "./views/MainPage";
-import Spinner from "./components/Spinner";
+import React, {Component, Suspense} from "react";
 import {connect} from "react-redux";
+import {Switch} from "react-router-dom";
+
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
-import userSelector from "./redux/user/userSelector";
-import LoginPage from "./views/LoginPage";
-import RegisterPage from "./views/RegisterPage";
+
+import Layout from "./components/Layout";
+import Header from "./components/Header";
+import Spinner from "./components/Spinner";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
+
+import routes from "./routes";
+
 
 class App extends Component {
   render() {
-    const {spinner, summary: {dayNormCalories}} = this.props;
+    const {spinner} = this.props;
     return (
       <Layout>
-        {/*<MainPage/>*/}
-        {/*<LoginPage/>*/}
-        {/*<RegisterPage/>*/}
         {spinner && <Spinner/>}
+        <Header/>
+        <Suspense fallback={<Spinner/>}>
+          <Switch>
+            {
+              routes.map(route => {
+                return route.private ?
+                  <PrivateRoute key={route.label} {...route}/> :
+                  <PublicRoute key={route.label} {...route}/>
+              })
+            }
+          </Switch>
+        </Suspense>
       </Layout>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  modal: toggleComponentsSelector.getModalWindow(state),
-  summary: userSelector.getSummary(state),
   spinner: toggleComponentsSelector.getSpinner(state),
 })
 
