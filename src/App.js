@@ -16,13 +16,16 @@ import Spinner from "./components/Spinner";
 import {connect} from "react-redux";
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
 import userSelector from "./redux/user/userSelector";
+import LoginPage from "./views/LoginPage";
 
 class App extends Component {
   render() {
-    const {modal, summary: {dayNormCalories}} = this.props;
+    const {spinner, summary: {dayNormCalories}} = this.props;
     return (
       <Layout>
-        <MainPage/>
+        {/*<MainPage/>*/}
+        <LoginPage/>
+        {spinner && <Spinner/>}
       </Layout>
     );
   }
