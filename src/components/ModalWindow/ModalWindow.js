@@ -20,8 +20,8 @@ class ModalWindow extends Component {
     return (
       <div className={styles.modalContainer} onClick={this.handleClickModalContainer}>
         <div className={styles.modalHeader}>
-          <div className={styles.returnBtnBlock} onClick={this.handleCloseModal}>
-            <ReturnBtn/>
+          <div className={styles.returnBtnContainer} onClick={this.handleCloseModal}>
+            <div className={styles.returnBtnBlock}><ReturnBtn/></div>
           </div>
         </div>
         <div className={styles.modal}>

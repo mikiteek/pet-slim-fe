@@ -50,7 +50,7 @@ class DailyCaloriesNorm extends Component {
     const {height, age, currentWeight, targetWeight, bloodType} = this.state;
     return (
       <div className="container">
-        <h2 className={styles.titleForm}>Посчитай свою суточную норму калорий прямо сейчас</h2>
+        <h2 className={styles.titleForm}>{this.props.title}</h2>
         <form className={styles.form} type="post" onSubmit={this.handleSubmit}>
           <div className={styles.inputBlock}>
             <div className={styles.inputBlockSide}>

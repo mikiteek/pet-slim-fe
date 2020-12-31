@@ -11,6 +11,7 @@ import LoginForm from "./components/LoginForm";
 import Navigation from "./components/Navigation";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
+import MainPage from "./views/MainPage";
 import Spinner from "./components/Spinner";
 import {connect} from "react-redux";
 import toggleComponentsSelector from "./redux/toggleComponents/toggleComponentsSelector";
@@ -21,8 +22,7 @@ class App extends Component {
     const {modal, summary: {dayNormCalories}} = this.props;
     return (
       <Layout>
-        <Header/>
-        {/*<Navigation/>*/}
+        <MainPage/>
       </Layout>
     );
   }

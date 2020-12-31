@@ -41,6 +41,7 @@
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
+  background-color: transparent;
   @include my-font-styles(#212121, 1.2, 14px, 700);
   letter-spacing: 0.04em;
   padding-bottom: 10px;

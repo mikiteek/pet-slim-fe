@@ -2,9 +2,12 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 80px;
   left: 0;
   background-color: rgba(33, 33, 33, 0.12);
+  @media (min-width: 768px) {
+    top: 0;
+  }
 }
 
 .modalHeader {
@@ -19,7 +22,14 @@
 }
 
 .returnBtnBlock {
-  display: inline-block;
+  display: block;
+  width: 290px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.returnBtnContainer {
+  width: 100%;
 }
 
 .modal {

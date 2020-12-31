@@ -9,7 +9,7 @@ class Layout extends Component {
     const {location, isAuthorized} = this.props;
     let wrapperStyles = styles.wrapperAuthorized;
     if (!isAuthorized) {
-      wrapperStyles = (location === "/") ? styles.wrapperMain: styles.wrapperPages;
+      wrapperStyles = (location.pathname === "/") ? styles.wrapperMain: styles.wrapperPages;
     }
     return (
       <div className={wrapperStyles}>
