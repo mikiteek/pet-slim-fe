@@ -2,6 +2,19 @@
 @import "../../static/scss/components/button";
 @import "./variables";
 
+.dailyCaloriesBlock {
+  padding-top: 40px;
+  margin-bottom: 60px;
+  @media (min-width: 768px) {
+    margin-bottom: 74px;
+    padding-top: 100px;
+  }
+  @media (min-width: 1280px) {
+    margin-bottom: 110px;
+    padding-top: 130px;
+  }
+}
+
 .titleForm {
   @include my-font-styles(#212121, 26px, 18px, 700);
   margin-bottom: 32px;

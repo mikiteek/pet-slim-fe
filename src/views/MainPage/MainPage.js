@@ -14,7 +14,7 @@ class MainPage extends Component {
     const {modal} = this.props;
     return (
       <div>
-        {/*<Header/>*/}
+        <Header/>
         <main className={styles.main}>
           <DailyCaloriesNorm title="Посчитай свою суточную норму калорий прямо сейчас"/>
           {modal &&

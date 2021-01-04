@@ -7,7 +7,7 @@ class RegisterPage extends Component {
   render() {
     return (
       <div>
-        {/*<Header/>*/}
+        <Header/>
         <main className={styles.main}>
           <RegisterForm/>
         </main>
