@@ -9,8 +9,10 @@ import Header from "./components/Header";
 import Spinner from "./components/Spinner";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
+import SideBar from "./components/SideBar";
 
 import routes from "./routes";
+import BurgerMenu from "./components/BurgerMenu";
 
 
 class App extends Component {
@@ -18,8 +20,10 @@ class App extends Component {
     const {spinner} = this.props;
     return (
       <Layout>
+        {/*<SideBar/>*/}
         {spinner && <Spinner/>}
-        <Header/>
+        {}
+        {/*<Header/>*/}
         <Suspense fallback={<Spinner/>}>
           <Switch>
             {
@@ -38,6 +42,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   spinner: toggleComponentsSelector.getSpinner(state),
+  burger: toggleComponentsSelector.getBurgerMenu(state),
 })
 
 export default connect(mapStateToProps)(App);

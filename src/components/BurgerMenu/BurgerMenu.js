@@ -3,11 +3,14 @@ import {NavLink} from "react-router-dom";
 import styles from "./BurgerMenu.module.scss";
 
 class BurgerMenu extends Component {
+  handleClick = () => {
+    console.log("hewe we are")
+  }
   render() {
     return (
       <div className={styles.burgerMenu}>
         <ul className={styles.navList}>
-          <li className={styles.navListItem}>
+          <li className={styles.navListItem} onClick={this.handleClick}>
             <NavLink
               to={"/diary"}
               className={styles.navListItemLink}

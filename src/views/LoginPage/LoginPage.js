@@ -7,7 +7,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
-        {/*<Header/>*/}
+        <Header/>
         <main className={styles.main}>
           <LoginForm/>
         </main>

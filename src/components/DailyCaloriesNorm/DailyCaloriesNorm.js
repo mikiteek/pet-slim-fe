@@ -48,8 +48,9 @@ class DailyCaloriesNorm extends Component {
 
   render() {
     const {height, age, currentWeight, targetWeight, bloodType} = this.state;
+    const dailyBlockStyles = ["container", styles.dailyCaloriesBlock].join(" ");
     return (
-      <div className="container">
+      <div className={dailyBlockStyles}>
         <h2 className={styles.titleForm}>{this.props.title}</h2>
         <form className={styles.form} type="post" onSubmit={this.handleSubmit}>
           <div className={styles.inputBlock}>
