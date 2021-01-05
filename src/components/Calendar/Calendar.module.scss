@@ -1,0 +1,34 @@
+@import "../../static/scss/mixins";
+
+.calendarComponent {
+  margin-bottom: 30px;
+  @media (min-width: 768px) {
+    margin-bottom: 52px;
+  }
+}
+
+.iconBtn {
+  display: flex;
+  cursor: pointer;
+}
+
+.dateBlock {
+  display: flex;
+  align-items: baseline;
+}
+
+.date {
+  margin-right: 20px;
+  @include my-font-styles(#212121, 100%, 18px, 700);
+  @media (min-width: 768px) {
+    font-size: 34px;
+  }
+}
+
+.calendarBlock {
+  position: relative;
+}
+
+.calendar {
+  position: absolute;
+}
