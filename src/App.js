@@ -10,6 +10,7 @@ import Spinner from "./components/Spinner";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import SideBar from "./components/SideBar";
+import Calendar from "./components/Calendar";
 
 import routes from "./routes";
 import BurgerMenu from "./components/BurgerMenu";
@@ -21,20 +22,20 @@ class App extends Component {
     return (
       <Layout>
         {/*<SideBar/>*/}
-        {spinner && <Spinner/>}
-        {}
+        {/*{spinner && <Spinner/>}*/}
+        <Calendar/>
         {/*<Header/>*/}
-        <Suspense fallback={<Spinner/>}>
-          <Switch>
-            {
-              routes.map(route => {
-                return route.private ?
-                  <PrivateRoute key={route.label} {...route}/> :
-                  <PublicRoute key={route.label} {...route}/>
-              })
-            }
-          </Switch>
-        </Suspense>
+        {/*<Suspense fallback={<Spinner/>}>*/}
+        {/*  <Switch>*/}
+        {/*    {*/}
+        {/*      routes.map(route => {*/}
+        {/*        return route.private ?*/}
+        {/*          <PrivateRoute key={route.label} {...route}/> :*/}
+        {/*          <PublicRoute key={route.label} {...route}/>*/}
+        {/*      })*/}
+        {/*    }*/}
+        {/*  </Switch>*/}
+        {/*</Suspense>*/}
       </Layout>
     );
   }
