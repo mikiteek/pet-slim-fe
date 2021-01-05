@@ -1,0 +1,9 @@
+.main {
+  @media (min-width: 1280px) {
+    display: flex;
+  }
+}
+
+.dailyBlock {
+  flex-grow: 1.1;
+}

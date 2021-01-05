@@ -4,6 +4,7 @@ const AsyncMainPage = lazy(() => import("./views/MainPage" /* webpackChunkName: 
 const AsyncLoginPage = lazy(() => import("./views/LoginPage" /* webpackChunkName: "login-page" */));
 const AsyncRegisterPage = lazy(() => import("./views/RegisterPage" /* webpackChunkName: "register-page" */));
 const AsyncCalcPage = lazy(() => import("./views/CalcPage" /* webpackChunkName: "calc-page" */))
+const AsyncDiaryPage = lazy(() => import("./views/DiaryPage" /* webpackChunkName: "diary-page" */))
 
 const routes = [
   {
@@ -35,6 +36,14 @@ const routes = [
     label: "Calc",
     exact: true,
     component: AsyncCalcPage,
+    private: true,
+    restricted: false,
+  },
+  {
+    path: "/diary",
+    label: "Diary",
+    exact: true,
+    component: AsyncDiaryPage,
     private: true,
     restricted: false,
   },
